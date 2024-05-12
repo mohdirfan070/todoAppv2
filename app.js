@@ -30,7 +30,10 @@ app.listen(PORT,(req,res)=>{
     console.log("Listenning on PORT:8080");
 });
 
-
+app.get("/",(req,res)=>{
+ 
+    res.render("home.ejs");
+});
 app.get("/home",(req,res)=>{
  
     res.render("home.ejs");
