@@ -334,11 +334,12 @@
                                         </form>
                                         
                                         
-                                        <form class="form-res"  action="" method="get">
+                                        <form class="form-res"  action="/user" method="get">//YE wala sahi hi hai
+                                            //Ye dono FORMs me ACTION TEMPORARY hai sahi port pe bhejna debug k time
                                             <!-- /home/edit/<%=saif[0].id%> -->
                                             <button style="background-color: transparent; border: none;"><i" style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-pen-to-square"></i></button>
                                         </form>
-                                        <form class="form-res" action="" method="post">
+                                        <form class="form-res" action="/user" method="get">//POST aana yaan
                                             <!-- /home/delete/<%=saif[0].id%>?_method=DELETE -->
                                             <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
                                             <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
