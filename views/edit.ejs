@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO || Home</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family: "Work Sans", sans-serif;
+    }
+    body{
+        background-color: #171717;
+    }
+    header{
+       width: 100%;
+        background-color:#232323;
+        margin: 0 auto 0.71rem auto;
+    }
+    nav{
+       padding: 0.2rem 0.1rem;
+        width: 100%; 
+        max-width: 950px;
+        margin:0 auto 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav a{
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: aliceblue;
+        margin: 0 1rem;
+        transition: color 0.3s ease ;
+    }
+    nav a:hover{ 
+        color: rgb(107, 107, 202);
+    }
+    nav h2{
+        transition: color 0.3s ease ;
+        color: whitesmoke;
+        font-weight: 700;
+        font-size: 2.3rem;
+       margin:2rem 1rem;
+    }
+    nav h2:hover{ 
+        color: rgb(107, 107, 202);
+        cursor: pointer;
+    }
+    #title{
+        background-color: #070707;
+        height: 1.83rem;
+        width: 90%;
+        border-radius: 12px;
+        border: none;
+        padding: 0.8rem;
+        font-size: 2rem;
+        color: white;
+        max-width: 540px;
+        max-height: 42px;
+        min-height: 42px;
+        min-width:140px ;
+       
+    }
+  
+    .form{
+        margin: 0 auto;
+        width: 80%;
+        border: 3px solid #070707;
+        border-radius: 11px ;
+        height: max-content;
+        padding: 1rem 1.3rem;
+        max-width: 880px;
+    }
+    #title:active{
+       border: none;
+        }
+#new-task-title{
+    color: white;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+    #content{
+        background-color: #070707;
+        height: 5rem;
+        width: 90%;
+        border-radius: 12px;
+        border: none;
+        padding: 0.8rem;
+        font-size: 1.91rem;
+        color: aliceblue;
+        margin-top: 0.9rem;
+        max-width: 90%;
+        min-width: 90%;
+        min-height: 120px;
+    }
+    #add-btn{
+        width: 9rem;
+        height: 3rem;
+        background-color: rgb(52, 52, 188);
+        color: white;
+        font-size: 1.4rem;
+        padding: 0.6rem ;
+        font-weight: 600;
+        margin: 2.5rem 0.21rem;
+        border-radius: 6px;
+        border: none;
+        transition: all 0.3s ease ;
+    }
+    #add-btn:hover{
+        background-color: white;
+        color: rgb(52, 52, 188) ;
+        /* transform: scale(1.08); */
+        font-size:1.495rem ;
+        box-shadow: 0px 0px 9px gainsboro;
+        cursor: pointer;
+        padding:0.3rem ;
+    }
+    #add-btn:focus{
+        border: none;
+    }
+    .no-tasks{
+        width:30%;
+        background-color:  #070707;
+       height: max-content;
+       margin: 1.2rem auto;
+       color: rgb(237, 229, 213);
+     transition: all 0.32s ease;
+       padding: 1.3rem;
+       border-radius: 12px;
+       max-width: 600px;
+       min-width: max-content;
+    }
+    .no-tasks:hover{
+        transform: scale(1.044);
+    }
+    .no-tasks h2{
+        font-weight:200;
+        margin: 0 auto;
+       
+    }
+    .all-tasks{
+        width: 90%;
+        background-color: orange;
+        margin:3rem auto 1rem auto;
+        max-width:980px;
+        padding: 1rem 1.3rem;
+        border-radius: 16px ;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-wrap: wrap;
+        box-shadow: 0px 0px 8px gray ;
+    }
+    .task{
+        width:100%;
+        padding:0.2rem 1rem;
+        background-color: #fff;
+        margin: 0.1rem 0.5rem 1rem 0.5rem;
+        border-radius: 46px 12px;
+    }
+.upper-task{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.upper-task p{
+    font-size: 1rem;
+   
+}
+#edit-btn-img{
+        height:3.4rem;
+    }
+    @media (max-width:601px) {
+        .task{
+            width: 100%;
+               }
+               .add-btn{
+               font-size: 1rem;
+               margin: 1rem 0.3rem;
+               }
+    }
+.form-res{
+    display:none;
+}
+    @media (max-width:596px) {
+        .from-l{
+            display:none;
+       }
+       .form-res{
+    display:flex;
+    align-items:stretch;
+    justify-content: end;
+        }
+        .btns{
+            display: flex;
+        }
+        #edit-btn-img{
+            display: block;
+            height:2.8rem;
+        }
+        .form-res{
+            display: block;
+            position: initial;
+            top: 3.84rem;
+        }
+      .upper-task h3{
+             width: 95%;
+        }
+    }
+
+   main{
+    max-width: 600px;
+    margin: 1rem auto 0.1rem auto;
+   }
+   footer{
+        max-width: 800px;
+        margin: 4rem auto;
+    }
+    .footer-div{
+        color: white;
+        width: 25rem;
+        margin: auto;
+        & a{
+            color: orange;
+            text-decoration: 2px underline  rgb(17, 129, 220);
+            font-weight: 600;
+        }
+    }
+
+  </style>
+<body>
+    <header>
+        <nav>
+           <a href=" /home"> <h2>Todo APP</h2> </a>
+            <a href=" /user">Back to Home</a>
+        </nav>
+    </header>
+   <main>
+    <form action="/edited" method="post">
+        <h2 id="new-task-title">Edit Task:</h2>
+        <textarea style="display: none;" name="id" cols="30" rows="10"><%=id%></textarea>
+        <textarea style="display: none;"  name="taskId" cols="30" rows="10"><%=taskId%></textarea>
+        <textarea name="newtitle" id="title" cols="30" rows="10"><%=title%></textarea>
+       <textarea name="newcontent" placeholder="Enter your Content" id="content" cols="30" rows="10"><%=content%></textarea>  <br>
+       <div class="btns">
+    <button type="submit" draggable="true" id="add-btn">Save Task</button> <button type="reset" id="add-btn">Reset</button>
+    </form>
+   </main>
+   <footer>
+    <div class="footer-div">
+       <span> Made WIth Love &heartsuit; By <a href="https://www.instagram.com/mohd_irfan070/">Mohammed Irfan</a></span>
+    </div>
+  
+</footer>      
+   </body>
+   </html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title><%= saif[0].name %></title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: "Work Sans", sans-serif;
+        }
+        body{
+            background-color: #171717;
+        }
+        header{
+           width: 100%;
+            background-color:#232323;
+            margin: 0 auto 0.71rem auto;
+        }
+        nav{
+           padding: 0.2rem 0.1rem;
+            width: 100%; 
+            max-width: 950px;
+            margin:0 auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h2{
+            transition: color 0.3s ease ;
+            color: whitesmoke;
+            font-weight: 700;
+            font-size: 2.3rem;
+           margin:2rem 1rem;
+        }
+        nav h2:hover{ 
+            color: rgb(107, 107, 202);
+            cursor: pointer;
+        }
+        #title{
+            background-color: #070707;
+            height: 1.83rem;
+            width: 90%;
+            border-radius: 12px;
+            border: none;
+            padding: 0.8rem;
+            font-size: 2rem;
+            color: white;
+        }
+      
+        .form{
+            margin: 0 auto;
+            width: 80%;
+            border: 3px solid #070707;
+            border-radius: 11px ;
+            height: max-content;
+            padding: 1rem 1.3rem;
+            max-width: 880px;
+        }
+        #title:active{
+           border: none;
+            }
+    #new-task-title{
+        color: white;
+        font-weight: 600;
+        font-size: 1.6rem;
+    }
+        #content{
+            background-color: #070707;
+            height: 5rem;
+            width: 90%;
+            border-radius: 12px;
+            border: none;
+            padding: 0.8rem;
+            font-size: 1.91rem;
+            color: aliceblue;
+            margin-top: 0.9rem;
+            max-width: 90%;
+            min-width: 90%;
+            min-height: 120px;
+        }
+        #add-btn{
+            width: 9rem;
+            height: 3rem;
+            background-color: rgb(52, 52, 188);
+            color: white;
+            font-size: 1.4rem;
+            padding: 0.6rem ;
+            font-weight: 600;
+            margin: 2.5rem 0.21rem;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.3s ease ;
+        }
+        #add-btn:hover{
+            background-color: white;
+            color: rgb(52, 52, 188) ;
+            /* transform: scale(1.08); */
+            font-size:1.495rem ;
+            box-shadow: 0px 0px 9px gainsboro;
+            cursor: pointer;
+            padding:0.3rem ;
+        }
+        #add-btn:focus{
+            border: none;
+        }
+        .no-tasks{
+            width:30%;
+            background-color:  #070707;
+           height: max-content;
+           margin: 1.2rem auto;
+           color: rgb(237, 229, 213);
+         transition: all 0.32s ease;
+           padding: 1.3rem;
+           border-radius: 12px;
+           max-width: 600px;
+           min-width: max-content;
+        }
+        .no-tasks:hover{
+            transform: scale(1.044);
+        }
+        .no-tasks h2{
+            font-weight:200;
+            margin: 0 auto;
+           
+        }
+        .all-tasks{
+            width: 90%;
+            background-color: orange;
+            margin:3rem auto 1rem auto;
+            max-width:980px;
+            padding: 1rem 1.3rem;
+            border-radius: 16px ;
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            flex-wrap: wrap;
+            box-shadow: 0px 0px 8px gray ;
+        }
+        .task{
+            width:100%;
+            padding:0.2rem 1rem;
+            background-color: #fff;
+            margin: 0.1rem 0.5rem 1rem 0.5rem;
+            border-radius: 46px 12px;
+        }
+    .upper-task{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+    }
+    .upper-task p{
+        font-size: 1rem;
+       
+    }
+    #edit-btn-img{
+            height:3.4rem;
+        }
+        @media (max-width:601px) {
+            .task{
+                width: 100%;
+                   }
+                   .add-btn{
+                   font-size: 1rem;
+                   margin: 1rem 0.3rem;
+                   }
+        }
+    .form-res{
+        display:none;
+    }
+        @media (max-width:596px) {
+            .from-l{
+                display:none;
+           }
+           .form-res{
+        display:flex;
+        align-items:stretch;
+        justify-content: end;
+            }
+            .btns{
+                display: flex;
+            }
+            #edit-btn-img{
+                display: block;
+                height:2.8rem;
+            }
+            .form-res{
+                display: block;
+                position: initial;
+                top: 3.84rem;
+            }
+          .upper-task h3{
+                 width: 95%;
+            }
+        }
+    
+    
+        #result-content{
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+    
+        #delete-btn{
+            width: 9rem;
+            height: 3rem;
+            background-color:white;
+            color:  rgb(52, 52, 188);
+            font-size: 1.4rem;
+            padding: 0.6rem ;
+            font-weight: 600;
+            margin: .1rem 0.21rem;
+            border-radius: 6px;
+            border: 2px solid rgb(52, 52, 188);
+            transition: all 0.3s ease ;
+        }
+        #delete-btn:hover{
+            background-color:rgb(52, 52, 188);
+            color:  white ;
+            /* transform: scale(1.08); */
+            font-size:1.5rem ;
+            box-shadow: 0px 0px 14px rgb(52, 52, 188);
+            cursor: pointer;
+            padding:0.3rem ;
+        }
+        #delete-btn:focus{
+            border: none;
+        }
+        .forms{
+            display: flex;
+        }
+        #edit-btn{
+            text-decoration: none;
+            width: 7rem;
+            height: 3rem;
+            background-color:white;
+            color:  rgb(52, 52, 188);
+            font-size: 1.4rem;
+            padding: 0.6rem 1rem;
+            font-weight: 600;
+            margin: .1rem 0.41rem;
+            border-radius: 6px;
+            border: 2px solid rgb(52, 52, 188);
+            transition: all 0.3s ease ;
+        }
+        #edit-btn:hover{
+            background-color:rgb(52, 52, 188);
+            color:  white ;
+            /* transform: scale(1.08); */
+            font-size:1.5rem ;
+            box-shadow: 0px 0px 14px rgb(52, 52, 188);
+            cursor: pointer;
+            padding:0.6rem 1rem;
+            width: 7rem;
+            height: 3rem;
+        }
+        #edit-btn:focus{
+            border: none;
+        }
+        #result-title{
+            font-size: 2.3rem;
+            text-decoration:underline;
+        }
+        #result-title::selection{
+            color: rgb(89, 221, 104);
+        }
+        footer{
+            max-width: 800px;
+            margin: 4rem auto;
+        }
+        .footer-div{
+            color: white;
+            width: 25rem;
+            margin: auto;
+            & a{
+                color: orange;
+                text-decoration: 2px underline  rgb(17, 129, 220);
+                font-weight: 600;
+            }
+        }
+      </style>
+  
+
+   <header>
+    <nav>
+       <a href="http://localhost:8080/user"><h2>Todo APP</h2></a>   <h2><%= saif[0].name %></h2>
+    </nav>
+</header>
+
+    <main>
+        <div class="form">
+            <form  action="/addtask" method="post">
+                <h2 id="new-task-title">Add a New Task:</h2>
+                <input style="display: none;" type="text" name="id" id="" value="<%=saif[0].id %>">
+            <input type="text" name="title" required id="title" placeholder="Enter a Title">
+           <textarea name="content" placeholder="Enter your Content" id="content" cols="30" rows="10"></textarea>  <br>
+           <div class="btns">
+        <button type="submit" draggable="true" id="add-btn">Add Task</button> <button type="reset" id="add-btn">Reset</button>
+    </div>
+    </form>
+    
+        </div>
+        <div class="tasks">
+            <%if(saif[0].task.length==0){%>
+                <div class="no-tasks">
+                    <h2>No Tasks Yet!</h2>
+                </div>
+                <% } else{ %>
+                    <div class="all-tasks">
+                        <% saif[0].task.forEach(element => { %>
+                            <div class="task">
+                                <div class="upper-task">
+                                    <h3 id="result-title"><%=element.title%></h3> 
+                                    <div class="check-div">
+                                        
+                                    </div>
+                                    <div class="forms">
+                                        
+                                        <form class="from-l" action="/delete?_method=DELETE" method="post">
+                                            <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
+                                            <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
+                                            <button id="delete-btn">  Delete </button>
+                                        </form>
+
+                                        <form class="from-l"  action="/edit" method="post">
+                                            <input style="display: none;" type="text" name="title" value="<%=element.title%>" >
+                      <input style="display: none;" type="text" name="taskId" value="<%=element.taskId%>">
+                                            <input style="display: none;" type="text" name="id" value="<%=saif[0].id%>">
+                                            <input style="display: none;" type="text" value="<%=element.content%>" name="content" >
+                                            <button id="edit-btn">Edit</button>
+                                        </form>
+                                        
+                                        
+                                        <form class="form-res"  action="/home/edit/<%=saif[0].id%>" method="get"><button style="background-color: transparent; border: none;"><i" style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-pen-to-square"></i></button>
+                                        </form>
+                                        <form class="form-res" action="/home/delete/<%=saif[0].id%>?_method=DELETE" method="post">
+                                            <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
+                                            <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
+                                            <button style="background-color: transparent; border: none; cursor: pointer;">  <i  style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-trash"></i> </button>
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                                <hr>
+                                
+                                <div class="content-div">
+                                    <p id="result-content"><%= element.content%></p>
+                                </div><hr>
+                                <p><%=element.time%></p>
+                            </div>
+                            <%});%>
+                        </div>
+     <%}%>
+    </div> 
+</main>
+</body>
+</html>
