@@ -16,12 +16,16 @@ main().then(()=>{
 }).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/todo');
+  await mongoose.connect(process.env.MONGODB_CONNECT_URI);
 }
+require('dotenv').config(()=>{
+    console.log("ENV aaya");
+});
 const { v4: uuidv4 } = require('uuid');
 const { title } = require("process");
 uuidv4();
-const PORT = 8080;
+
+const PORT = process.env.PORT;
 app.listen(PORT,(req,res)=>{
     console.log("Listenning on PORT:8080");
 });
@@ -95,35 +99,22 @@ app.post("/addtask",async(req,res)=>{
 app.post("/edit",async(req,res)=>{
     let {id,taskId,title,content} = req.body;
     //   console.log({id});   
-    res.render("edit.ejs",{id,title,content,taskId} );
+    // res.render("edit.ejs",{id,title,content,taskId} );
+    res.redirect("/user");
 });
 
-// app.post("/edited",async(req,res)=>{
-//     let {id,taskId,newtitle,newcontent}=req.body;
-//     // console.log( {id,taskId,newtitle,newcontent});
-//     let user = await User.findById(id);
-//     // console.log(user);
-//     for(i=0;i<user.task.length;i++){
-//         if(user.task[i].taskId==taskId){
-//             let gotUser =  await User.find({"task.taskId":taskId})
-//             // for(j=0;j<gotUser.task.length;j++){
-//             //     if(gotUser.task[j].taskId==taskId){
-//             //         console.log(gotUser.task[j].title);
-//             //     }
-//             // }
-            
-//         console.log(gotUser.task);
-//         }
-//     }
-//     // console.log( await User.findOne({task:{"taskId":taskId}}));
-//     res.redirect("/user");
-// });
+app.patch("/edited",async(req,res)=>{
+    // let {id,taskId,newtitle,newcontent}=req.body;
+    // // console.log( {id,taskId,newtitle,newcontent});
+    // let user = await User.findById(id);
+    res.redirect("/user");
+});
 
-// app.delete("/delete",async(req,res)=>{
-//     let {id,content}=req.body;
-//     await User.findOneAndDelete(id);
-//     res.redirect("/user");
-// });
+app.delete("/delete",async(req,res)=>{
+    // let {id,content}=req.body;
+    // await User.findOneAndDelete(id);
+    res.redirect("/user");
+});
 
 /*
 Single Client

@@ -241,7 +241,7 @@
         </nav>
     </header>
    <main>
-    <form action="/edited" method="post">
+    <form action="/edited?_method=PATCH" method="post">
         <h2 id="new-task-title">Edit Task:</h2>
         <textarea style="display: none;" name="id" cols="30" rows="10"><%=id%></textarea>
         <textarea style="display: none;"  name="taskId" cols="30" rows="10"><%=taskId%></textarea>
