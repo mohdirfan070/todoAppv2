@@ -4,6 +4,7 @@ const path = require("path");
 const User  = require("./models/userSchema");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
+require('dotenv').config(()=>{console.log("ENV aaya")});
 app.use(express.static(path.join(__dirname,"public/")));
 app.use(express.urlencoded({extended:true}));
 app.set(path.join(__dirname,"views"));
@@ -18,9 +19,8 @@ main().then(()=>{
 async function main() {
   await mongoose.connect(process.env.MONGODB_CONNECT_URI);
 }
-require('dotenv').config(()=>{
-    console.log("ENV aaya");
-});
+
+
 const { v4: uuidv4 } = require('uuid');
 const { title } = require("process");
 uuidv4();
