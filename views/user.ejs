@@ -343,8 +343,7 @@
 
                                         
 
-                                        <!-- <form class="form-res"  action="/edit" method="get"><button style="background-color: transparent; border: none;"><i" style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-pen-to-square"></i></button>
-                                        </form> -->
+                                      
 
                                         <form  class="form-res" action="/delete?_method=DELETE" method="post">
                                             <input type="text" style="display: none;" name="taskId" value="<%= element%>" id="">
@@ -352,11 +351,7 @@
                                             <button style="background-color: transparent; border: none; cursor: pointer;">  <i  style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-trash"></i> </button>
                                         </form>
 
-                                        <!-- <form class="form-res" action="/delete?_method=DELETE" method="post">
-                                            <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
-                                            <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
-                                            <button style="background-color: transparent; border: none; cursor: pointer;">  <i  style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-trash"></i> </button>
-                                        </form> -->
+                                     
                                         
                                     </div>
                                 </div>
@@ -365,7 +360,7 @@
                                 <div class="content-div">
                                     <p id="result-content"><%= element.content%></p>
                                 </div><hr>
-                                <p><%=element.time%></p>
+                                <p> <pre> <%=element.time%> </pre></p>
                             </div>
                             <%});%>
                         </div>
