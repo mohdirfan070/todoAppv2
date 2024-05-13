@@ -1,6 +1,9 @@
 const express  = require("express");
 const app  =  express();
 const path = require("path");
+require('dotenv').config(()=>{
+    console.log("ENV aaya");
+});
 const User  = require("./models/userSchema");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
@@ -16,13 +19,11 @@ main().then(()=>{
 }).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect( process.env.MONGODB_CONNECT_URI);
+  await mongoose.connect(process.env.MONGODB_CONNECT_URI);
 }
 // process.env.MONGODB_CONNECT_URI
 
-require('dotenv').config(()=>{
-    console.log("ENV aaya");
-});
+
 const { v4: uuidv4 } = require('uuid');
 const { title } = require("process");
 uuidv4();
