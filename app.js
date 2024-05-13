@@ -4,7 +4,6 @@ const path = require("path");
 const User  = require("./models/userSchema");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-require('dotenv').config(()=>{console.log("ENV aaya")});
 app.use(express.static(path.join(__dirname,"public/")));
 app.use(express.urlencoded({extended:true}));
 app.set(path.join(__dirname,"views"));
@@ -17,10 +16,13 @@ main().then(()=>{
 }).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.MONGODB_CONNECT_URI);
+  await mongoose.connect('mongodb://127.0.0.1:27017/todo');
 }
+// process.env.MONGODB_CONNECT_URI
 
-
+require('dotenv').config(()=>{
+    console.log("ENV aaya");
+});
 const { v4: uuidv4 } = require('uuid');
 const { title } = require("process");
 uuidv4();
@@ -30,10 +32,7 @@ app.listen(PORT,(req,res)=>{
     console.log("Listenning on PORT:8080");
 });
 
-app.get("/",(req,res)=>{
- 
-    res.render("home.ejs");
-});
+
 app.get("/home",(req,res)=>{
  
     res.render("home.ejs");
@@ -102,20 +101,42 @@ app.post("/addtask",async(req,res)=>{
 app.post("/edit",async(req,res)=>{
     let {id,taskId,title,content} = req.body;
     //   console.log({id});   
-    // res.render("edit.ejs",{id,title,content,taskId} );
-    res.redirect("/user");
+    res.render("edit.ejs",{id,title,content,taskId} );
+    // res.redirect("/user");
 });
 
 app.patch("/edited",async(req,res)=>{
-    // let {id,taskId,newtitle,newcontent}=req.body;
-    // // console.log( {id,taskId,newtitle,newcontent});
-    // let user = await User.findById(id);
+    let {id,taskId,newtitle,newcontent}=req.body;
+    // console.log( {id,taskId,newtitle,newcontent});
+    let user = await User.findById(id);
+    // console.log(user);
+    for(i=0;i<user.task.length;i++){
+        if(user.task[i].taskId==taskId){
+            user.task[i].taskId=taskId;
+            user.task[i].title=newtitle;
+            user.task[i].content=newcontent;
+            await User.findByIdAndUpdate(id,{"task":user.task},{new:true});
+        }
+    }
+    // user.task.push({taskId,newtitle,newcontent});
+    // await User.findByIdAndUpdate(id,{"task":{title:newtitle}},{new:true});
     res.redirect("/user");
 });
 
 app.delete("/delete",async(req,res)=>{
-    // let {id,content}=req.body;
-    // await User.findOneAndDelete(id);
+    let {id,taskId}=req.body;
+    // console.log( {id,taskId});
+
+    // let user = await User.findById(id);
+    // // console.log(user);
+    // for(i=0;i<user.task.length;i++){
+    //     if(user.task[i].taskId==taskId){
+    //         user.task[i].taskId=taskId;
+    //         user.task[i].title=newtitle;
+    //         user.task[i].content=newcontent;
+    //         await User.findByIdAndUpdate(id,{"task":user.task},{new:true});
+    //     }
+    // }
     res.redirect("/user");
 });
 

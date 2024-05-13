@@ -317,35 +317,46 @@
                                     </div>
                                     <div class="forms">
                                         
-                                        <form class="from-l" action="" method="post">
-                                            <!-- /delete?_method=DELETE -->
-                                            <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
+                                        <form class="from-l" action="/delete?_method=DELETE" method="post">
+                                            <input type="text" style="display: none;" name="taskId" value="<%= element%>" id="">
                                             <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
                                             <button id="delete-btn">  Delete </button>
                                         </form>
 
-                                        <form class="from-l"  action="" method="post">
-                                            <!-- /edit -->
+                                        <form class="from-l"  action="/edit" method="post">
                                             <input style="display: none;" type="text" name="title" value="<%=element.title%>" >
-                      <input style="display: none;" type="text" name="taskId" value="<%=element.taskId%>">
+                              <input style="display: none;" type="text" name="taskId" value="<%=element.taskId%>">
                                             <input style="display: none;" type="text" name="id" value="<%=saif[0].id%>">
                                             <input style="display: none;" type="text" value="<%=element.content%>" name="content" >
                                             <button id="edit-btn">Edit</button>
                                         </form>
                                         
-                                        
-                                        <form class="form-res"  action="/user" method="get">
-                                            <!--//YE wala sahi hi hai
-                                            //Ye dono FORMs me ACTION TEMPORARY hai sahi port pe bhejna debug k time-->
-                                            <!-- /home/edit/<%=saif[0].id%> -->
+                                       <!-- responsive forms-->
+
+                                        <form class="form-res"  action="/edit" method="post">
+                                              <input style="display: none;" type="text" name="title" value="<%=element.title%>" >
+                                <input style="display: none;" type="text" name="taskId" value="<%=element.taskId%>">
+                                               <input style="display: none;" type="text" name="id" value="<%=saif[0].id%>">
+                                            <input style="display: none;" type="text" value="<%=element.content%>" name="content" >
                                             <button style="background-color: transparent; border: none;"><i" style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-pen-to-square"></i></button>
                                         </form>
-                                        <form class="form-res" action="/user" method="get">  <!--//POST aana yaan-->
-                                            <!-- /home/delete/<%=saif[0].id%>?_method=DELETE -->
-                                            <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
+
+                                        
+
+                                        <!-- <form class="form-res"  action="/edit" method="get"><button style="background-color: transparent; border: none;"><i" style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-pen-to-square"></i></button>
+                                        </form> -->
+
+                                        <form  class="form-res" action="/delete?_method=DELETE" method="post">
+                                            <input type="text" style="display: none;" name="taskId" value="<%= element%>" id="">
                                             <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
                                             <button style="background-color: transparent; border: none; cursor: pointer;">  <i  style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-trash"></i> </button>
                                         </form>
+
+                                        <!-- <form class="form-res" action="/delete?_method=DELETE" method="post">
+                                            <input type="text" style="display: none;" name="content" value="<%= element.content%>" id="">
+                                            <input style="display: none;" type="text" name="id" value="<%= saif[0].id%>">
+                                            <button style="background-color: transparent; border: none; cursor: pointer;">  <i  style="margin: 0 0.3rem; scale: 1.4;" class="fa-solid fa-trash"></i> </button>
+                                        </form> -->
                                         
                                     </div>
                                 </div>
@@ -361,8 +372,5 @@
      <%}%>
     </div> 
 </main>
-<div class="footer-div">
-    <span> Made WIth Love &heartsuit; By <a href="https://www.instagram.com/mohd_irfan070/">Mohammed Irfan</a></span>
- </div>
 </body>
 </html>
