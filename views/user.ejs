@@ -155,6 +155,13 @@
         font-size: 1rem;
        
     }
+    #result-title{
+            font-size: 2.3rem;
+            text-decoration:underline;
+        }
+        #result-title::selection{
+            color: rgb(89, 221, 104);
+        }
     #edit-btn-img{
             height:3.4rem;
         }
@@ -170,7 +177,7 @@
     .form-res{
         display:none;
     }
-        @media (max-width:596px) {
+        @media (max-width:696px) {
             .from-l{
                 display:none;
            }
@@ -179,8 +186,11 @@
         align-items:stretch;
         justify-content: end;
             }
-            nav{
-                font-size: 1rem
+            nav h2{
+                font-size: 1.41rem
+            }
+            #result-title{
+                font-size: 1.2rem;
             }
             .btns{
                 display: flex;
@@ -196,6 +206,12 @@
             }
           .upper-task h3{
                  width: 95%;
+            }
+            #new-task-title{
+                font-size: 1.3rem;
+            }
+            #title,#content{
+                font-size: 1.31rem;
             }
         }
     
@@ -261,13 +277,7 @@
         #edit-btn:focus{
             border: none;
         }
-        #result-title{
-            font-size: 2.3rem;
-            text-decoration:underline;
-        }
-        #result-title::selection{
-            color: rgb(89, 221, 104);
-        }
+       
         footer{
             max-width: 800px;
             margin: 4rem auto;
