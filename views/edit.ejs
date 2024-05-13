@@ -29,17 +29,6 @@
         justify-content: space-between;
         align-items: center;
     }
-    nav a{
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-decoration: none;
-        color: aliceblue;
-        margin: 0 1rem;
-        transition: color 0.3s ease ;
-    }
-    nav a:hover{ 
-        color: rgb(107, 107, 202);
-    }
     nav h2{
         transition: color 0.3s ease ;
         color: whitesmoke;
@@ -60,11 +49,6 @@
         padding: 0.8rem;
         font-size: 2rem;
         color: white;
-        max-width: 540px;
-        max-height: 42px;
-        min-height: 42px;
-        min-width:140px ;
-       
     }
   
     .form{
@@ -172,6 +156,13 @@
     font-size: 1rem;
    
 }
+#result-title{
+        font-size: 2.3rem;
+        text-decoration:underline;
+    }
+    #result-title::selection{
+        color: rgb(89, 221, 104);
+    }
 #edit-btn-img{
         height:3.4rem;
     }
@@ -187,7 +178,7 @@
 .form-res{
     display:none;
 }
-    @media (max-width:596px) {
+    @media (max-width:696px) {
         .from-l{
             display:none;
        }
@@ -195,6 +186,12 @@
     display:flex;
     align-items:stretch;
     justify-content: end;
+        }
+        nav h2{
+            font-size: 1.41rem
+        }
+        #result-title{
+            font-size: 1.2rem;
         }
         .btns{
             display: flex;
@@ -211,13 +208,78 @@
       .upper-task h3{
              width: 95%;
         }
+        #new-task-title{
+            font-size: 1.3rem;
+        }
+        #title,#content{
+            font-size: 1.31rem;
+        }
     }
 
-   main{
-    max-width: 600px;
-    margin: 1rem auto 0.1rem auto;
-   }
-   footer{
+
+    #result-content{
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    #delete-btn{
+        width: 9rem;
+        height: 3rem;
+        background-color:white;
+        color:  rgb(52, 52, 188);
+        font-size: 1.4rem;
+        padding: 0.6rem ;
+        font-weight: 600;
+        margin: .1rem 0.21rem;
+        border-radius: 6px;
+        border: 2px solid rgb(52, 52, 188);
+        transition: all 0.3s ease ;
+    }
+    #delete-btn:hover{
+        background-color:rgb(52, 52, 188);
+        color:  white ;
+        /* transform: scale(1.08); */
+        font-size:1.5rem ;
+        box-shadow: 0px 0px 14px rgb(52, 52, 188);
+        cursor: pointer;
+        padding:0.3rem ;
+    }
+    #delete-btn:focus{
+        border: none;
+    }
+    .forms{
+        display: flex;
+    }
+    #edit-btn{
+        text-decoration: none;
+        width: 7rem;
+        height: 3rem;
+        background-color:white;
+        color:  rgb(52, 52, 188);
+        font-size: 1.4rem;
+        padding: 0.6rem 1rem;
+        font-weight: 600;
+        margin: .1rem 0.41rem;
+        border-radius: 6px;
+        border: 2px solid rgb(52, 52, 188);
+        transition: all 0.3s ease ;
+    }
+    #edit-btn:hover{
+        background-color:rgb(52, 52, 188);
+        color:  white ;
+        /* transform: scale(1.08); */
+        font-size:1.5rem ;
+        box-shadow: 0px 0px 14px rgb(52, 52, 188);
+        cursor: pointer;
+        padding:0.6rem 1rem;
+        width: 7rem;
+        height: 3rem;
+    }
+    #edit-btn:focus{
+        border: none;
+    }
+   
+    footer{
         max-width: 800px;
         margin: 4rem auto;
     }
@@ -231,8 +293,8 @@
             font-weight: 600;
         }
     }
-
   </style>
+
 <body>
     <header>
         <nav>
