@@ -21,7 +21,7 @@ main().then(()=>{
 async function main() {
   await mongoose.connect(process.env.MONGODB_CONNECT_URI);
 }
-// process.env.MONGODB_CONNECT_URI
+// 'mongodb://127.0.0.1:27017/todo'  process.env.MONGODB_CONNECT_URI
 
 
 const { v4: uuidv4 } = require('uuid');
@@ -126,18 +126,14 @@ app.patch("/edited",async(req,res)=>{
 
 app.delete("/delete",async(req,res)=>{
     let {id,taskId}=req.body;
-    // console.log( {id,taskId});
-
-    // let user = await User.findById(id);
-    // // console.log(user);
-    // for(i=0;i<user.task.length;i++){
-    //     if(user.task[i].taskId==taskId){
-    //         user.task[i].taskId=taskId;
-    //         user.task[i].title=newtitle;
-    //         user.task[i].content=newcontent;
-    //         await User.findByIdAndUpdate(id,{"task":user.task},{new:true});
-    //     }
-    // }
+    console.log( {id,taskId});
+    let user = await User.findById(id);
+    for(i=0;i<user.task.length;i++){
+        if(user.task[i].taskId==taskId){
+           user.task.splice(i,1);
+           await User.findByIdAndUpdate(id,{"task":user.task},{new:true});
+        }
+    }
     res.redirect("/user");
 });
 
